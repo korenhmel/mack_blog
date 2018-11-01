@@ -1,1 +1,7 @@
-<h1>Index is here</h1>
+<h1>Index</h1>
+
+<% @posts.each do |post| %>
+	<h2><%= post.title %></h2>
+	<p><%= post.body %></p>
+	<small >Submitted <%= time_ago_in_words(post.created_at) %></small> 
+	<% end %>
