@@ -1,3 +1,4 @@
+<div id="page_wrapper">
 <h1>New</h1>
 <%= form_with(model: @post, local: true) do |form| %>
   <% if @post.errors.any? %>
@@ -20,10 +21,10 @@
   <div class="form-group">
     <%= form.label :body %> <br>
     <%= form.text_field :body, id: :post_body, class: "form-control" %>
-  </div>
+  </div><br>
 
   <div class="form-group">
     <%= form.submit "Submit", class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
-<p><%= p params %></p>
+</div>
