@@ -13,20 +13,29 @@ class PostsController < ApplicationController
   end
 
   def create 
-   @post = Post.new(post_params)
-   if @post.save
-    redirect_to post_url(@post)
-  else 
-    render :new
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to post_url(@post)
+    else 
+      render :new
+    end
   end
-
+  def edit
   end
 
   def update
+      if @post.update(post_params)
+      redirect_to post_url(@post)
+      else 
+      render :edit
+    end
   end
 
   def destroy
+    @post.destroy
+     redirect_to root_url
   end
+
   private
   def post_params
     params.require(:post).permit(:title, :body)

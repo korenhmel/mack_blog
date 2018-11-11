@@ -1,5 +1,5 @@
 <div id="page_wrapper">
-<h1>New</h1>
+<h1>Edit</h1>
 <%= form_with(model: @post, local: true) do |form| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -19,11 +19,11 @@
 
   <div class="form-group">
     <%= form.label :body %> <br>
-    <%= form.text_area :body, id: :post_body, class: "form-control" %>
+    <%= form.text_field :body, id: :post_body, class: "form-control" %>
   </div><br>
 
   <div class="form-group">
-    <%= form.submit "Save Post", class: "btn btn-lg btn-primary" %>
+    <%= form.submit "Update Post", class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
 </div>
