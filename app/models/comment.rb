@@ -1,5 +1,5 @@
-class Post < ApplicationRecord
+class Comment < ApplicationRecord
+  belongs_to :post
   validates :title, presence: true, :length => { :minimum => 5 }
   validates :body, presence: true
-  has_many :comments, dependent: :destroy
 end
