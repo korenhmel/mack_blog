@@ -44,6 +44,7 @@ a {
 		right: 5em;
 		top: 2em;
 	}
+	
 	ul {
 		list-style: none;
 		text-align: right;
@@ -215,8 +216,17 @@ a {
 			img {
 				width: 100%;
 				border-radius: 0.35em;
-			}
+			}	
 		}
+		#my_photo {
+			width: 200px;
+			float: left;
+			margin-right: 2em;
+			img {
+				width: 100%;
+				border-radius: 0.35em;
+			    }	
+			}
 		#content {
 			h1 {
 				font-weight: 500;
