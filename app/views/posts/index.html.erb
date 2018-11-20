@@ -4,7 +4,13 @@
 <div class="post_wrapper">
 	<h2><%= link_to post.title, post %></h2>
 	<p><%= post.body %></p>
-	<p class="date">Submitted <%= time_ago_in_words(post.created_at) %> ago</p> 
+
+	<% if post.user == current_user %>
+ <p> <%= link_to 'Edit', edit_post_path(post) %>| <%= link_to 'Delete',  post, method: :delete, data:{confirm: 'Are you sure'} %></p>
+ <% end %>
+	<p >submited by: <span class="email_color"> <%= post.user.email %></span> <%= time_ago_in_words(post.created_at) %> ago</p>
+	<!-- <p class="date">Submitted <%= time_ago_in_words(post.created_at) %> ago</p>  -->
   </div>
+ 
 	<% end %>
-	
+	<span></span>

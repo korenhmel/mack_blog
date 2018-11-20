@@ -31,15 +31,26 @@
   <div id="main_content">
     <div id="header">
       <p><%= link_to "All Posts", posts_path %></p>
-      <div class="buttons">
-        <button class="button"><%= link_to "New Post", new_post_path %></button>
-        <button class="button"><%= link_to "log Out" %></button>
+     
+
+        <p class="right"><%= link_to "New Post", new_post_path %></p>
+         <div class="buttons">
+         <% if user_signed_in? %>
+         <button class="button"><%= link_to "Edit User Registration", edit_user_registration_path  %></button>
+        <button class="button"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></button>
+          <% else %>
+          <button class="button"><%= link_to "Sign up", new_user_registration_path  %></button>
+          <button class="button"><%= link_to "log in", user_session_path  %></button>
+          <% end %>
       </div>
       </div>
+      <div id="page_wrapper">
       <% flash.each do |name, msg| %>
-        <%= content_tag(:div, msg, class: "alert") %>
-        <% end %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %> 
+
         <%= yield %>
+        </div>
   </div>
   </body>
 </html>

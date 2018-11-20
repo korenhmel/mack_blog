@@ -2,8 +2,11 @@
 <div class="post_wrapper">
 <h2><%= @post.title %></h2>
 <p><%= @post.body %></p>
+<% if @post.user == current_user %>
  <p> <%= link_to 'Edit', edit_post_path(@post) %>| <%= link_to 'Delete',  @post, method: :delete, data:{confirm: 'Are you sure'} %></p>
-<p class="date">submited <%= time_ago_in_words(@post.created_at) %> ago.</p>
+ <% end %>
+ <p >submited by: <span class="email_color"> <%= @post.user.email %></span> <%= time_ago_in_words(@post.created_at) %> ago</p>
+<!-- <p class="date">submited <%= time_ago_in_words(@post.created_at) %> ago.</p> -->
  <%= render 'form_comments' %>
 <div id="comments">
   <h2><%= @post.comments.count %> Comments</h2>
